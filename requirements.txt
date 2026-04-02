@@ -1,0 +1,8 @@
+Flask==3.1.2
+pymongo
+python-dotenv
+flasgger
+flask-cors
+numpy
+cloudscraper
+huggingface_hub
