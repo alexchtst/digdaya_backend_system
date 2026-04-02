@@ -1,2 +1,5 @@
 *.json
 *.csv
+ck_clean_data.py
+*.txt
+*.ipynb

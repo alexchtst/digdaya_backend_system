@@ -4,5 +4,3 @@ python-dotenv
 flasgger
 flask-cors
 numpy
-cloudscraper
-huggingface_hub
