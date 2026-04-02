@@ -22,7 +22,7 @@ def home():
     """
     return jsonify({
         "message": "API IS RUNNING WELL",
-        "hosted-api-documentation": "nanti",
+        "hosted-api-documentation": "https://digdaya-backend-system.vercel.app/apidocs",
         "local-api-documentation": "http://localhost:5000/apidocs"
     }), 200
 
