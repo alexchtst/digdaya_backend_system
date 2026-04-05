@@ -154,30 +154,24 @@ def predict_naive_bayes(model: dict, z_values: dict) -> int:
 
     return best_label
 
-
 def get_recommendation(row: pd.Series, model: dict) -> dict:
-    """
-    Gabungkan label RBS dan prediksi Naive Bayes.
-    Jika keduanya sama → label final = itu.
-    Jika berbeda → ambil yang lebih tinggi (lebih konservatif/aman).
-    """
     z_values = {f"z_{col}": row[f"z_{col}"] for col in OBSERVEN}
-
+ 
     label_rbs = int(row["risk_label"])
     label_nb  = predict_naive_bayes(model, z_values)
-
+ 
     final_label = max(label_rbs, label_nb)
-
+ 
     rec = STEP_RECOMMENDATION[final_label]
-
+ 
     return {
-        "code":            row["code"],
-        "name":            row["name"],
-        "year":            row["year"],
-        "composite_score": round(row["composite_score"], 4),
-        "label_rbs":       label_rbs,
-        "label_nb":        label_nb,
-        "final_label":     final_label,
+        "code":            str(row["code"]),
+        "name":            str(row["name"]),
+        "year":            int(row["year"]),
+        "composite_score": float(round(row["composite_score"], 4)),
+        "label_rbs":       int(label_rbs),
+        "label_nb":        int(label_nb),
+        "final_label":     int(final_label),
         "status":          rec["label"],
         "recommendation":  rec["step"],
     }
