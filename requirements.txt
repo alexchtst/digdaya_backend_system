@@ -4,3 +4,4 @@ python-dotenv
 flasgger
 flask-cors
 numpy
+pandas
